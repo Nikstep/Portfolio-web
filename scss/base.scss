@@ -1,0 +1,422 @@
+//VARIABLES
+
+$font-main: 'Rajdhani';
+
+$text-color-main: #6afde7;
+$text-color-alt: #e31b6d;
+
+// $bg-color-main: #272625; v1
+$bg-color-main: #2C313D; //v2
+// $bg-color-main: #21252E; // v3
+$bg-color-alt: #fff;
+
+$transition: all 0.3s ease-in-out;
+
+
+//MIXINS
+
+@mixin box-sizing( $value ) {
+	-webkit-box-sizing: $value;
+	   -moz-box-sizing: $value;
+	        box-sizing: $value;
+}
+
+@mixin container( $width ) {
+	max-width: $width;
+	margin: 0 auto;
+}
+
+//GENERAL
+
+body {
+  font-family: $font-main;
+  color: $text-color-main;
+}
+
+#home {
+  height: 100vh;
+}
+
+//MENU
+
+.hider {
+  height: 50px;
+  overflow: auto;
+}
+
+.sticky-menu{
+  width: 100%;
+  height: 50px;
+  background-color: rgba(darken($bg-color-main, 6%), 0.8);
+  position: relative;
+  top: 0;
+  z-index: 98;
+  animation: 2s ease-out 0s 1 slideUp;
+}
+
+.menu{
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 2px;
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  position: absolute;
+  z-index: 99;
+  li {
+    list-style: none;
+    display: inline-block;
+    a {
+      text-decoration: none;
+      color: $text-color-main;
+      margin: 10px 16px;
+      padding: 0 2px;
+      transition: linear 0.2s;
+      &:hover {
+        text-shadow: 0px 0px 4px $text-color-main;
+        transition: linear 0.2s;
+    }
+  }
+}
+}
+
+.link {
+  position: relative;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 0.9px;
+    position: absolute;
+    background-color: $text-color-main;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: $transition;
+    transition: $transition;
+    }
+    &:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    }
+}
+
+
+//MENU BACKGROUND
+  
+.space{
+  height: 100%;
+  width: 100%;
+  background: $bg-color-main;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+
+#lines{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.drops {
+  opacity: 0.9;
+}
+
+.drop {
+  opacity: 0;
+  animation: 1s linear 2s fadeIn;
+  animation-fill-mode: forwards;
+  fill: $text-color-main; 
+  &:nth-child(odd) {
+    fill: $text-color-alt;
+  }  
+}
+
+//MENU LINES
+
+#svg-top-line {
+  width: 100%;
+  top: 0;
+  position: absolute;
+  z-index: 2;
+}
+
+#top-line {
+  stroke-width: 1.8px;
+  stroke: $text-color-main;
+  animation: 1s linear 0s 1 slideFromLeft, 1s linear 2s 1 slideToRight;
+  animation-fill-mode: forwards;
+}
+
+#svg-bot-line {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  z-index: 2;
+}
+
+#bot-line {
+  stroke-width: 5px;
+  stroke: $text-color-alt;
+  animation: 1s linear 0s 1 slideFromRight, 1s linear 2s 1 slideToLeft;
+  animation-fill-mode: forwards;
+}
+
+//CSS ANIMATIONS
+
+
+@keyframes fadeIn {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+
+@keyframes slideUp {
+  0%    { top: 100%} 
+  50%    { top: 100%} 
+  100%  { top: 0};
+}
+
+@-webkit-keyframes slideUp {
+  0%    { top: 100%} 
+  50%    { top: 100%} 
+  100%  { top: 0};
+}
+
+@keyframes slideDown {
+  0%    { bottom: 100%} 
+  50%    { bottom: 100%} 
+  100%  { bottom: 0};
+}
+
+@-webkit-keyframes slideDown {
+  0%    { bottom: 100%} 
+  50%    { bottom: 100%} 
+  100%  { bottom: 0};
+}
+
+@keyframes slideFromLeft {
+  0%    { transform: translateX(-150%)} 
+  100%  { transform: translateX(0) } 
+}
+
+@-webkit-keyframes slideFromLeft {
+  0%    { transform: translateX(-150%)} 
+  100%  { transform: translateX(0) } 
+};
+
+@keyframes slideFromRight {
+  0%    { transform: translateX(150%)} 
+  100%  { transform: translateX(0) } 
+}
+
+@-webkit-keyframes slideFromRight {
+  0%    { transform: translateX(150%)} 
+  100%  { transform: translateX(0) } 
+};
+
+@keyframes slideToLeft {
+  0%    { transform: translateX(0)} 
+  100%  { transform: translateX(-150%) } 
+}
+
+@-webkit-keyframes slideToLeft {
+  0%    { transform: translateX(0)} 
+  100%  { transform: translateX(-150%) } 
+};
+
+@keyframes slideToRight {
+  0%    { transform: translateX(0)} 
+  100%  { transform: translateX(150%) } 
+}
+
+@-webkit-keyframes slideToRight {
+  0%    { transform: translateX(0)} 
+  100%  { transform: translateX(150%) } 
+};
+
+@keyframes typeIn {
+  from { width: 0;
+    visibility: visible;
+  }
+  to { width: 100%;
+    visibility: visible; }
+}
+
+@-webkit-keyframes typeIn {
+  from { width: 0;
+    visibility: visible;
+  }
+  to { width: 100%;
+    visibility: visible; }
+}
+
+@keyframes blinker {
+  from, to { border-color: transparent }
+  50% { border-color: $text-color-main }
+}
+
+@-webkit-keyframes blinker {
+  from, to { border-color: transparent }
+  50% { border-color: $text-color-main }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity:1;
+  }
+  to {
+      opacity:0;
+  }
+}
+@-webkit-keyframes fadeOut {
+  from {
+      opacity:1;
+  }
+  to {
+      opacity:0;
+  }
+}
+
+
+//CLAIM
+
+.claim{
+  position: absolute;
+  text-align: center;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding-bottom: 10px;
+  letter-spacing: 1px;
+  @include box-sizing(border-box);
+  
+  h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: $text-color-main;
+    font-weight: 400;
+    overflow: hidden;
+    border-right: 2px solid $text-color-main;
+    white-space: nowrap;
+    visibility: hidden;
+    animation: typeIn 1.5s 3.5s steps(50), 
+               blinker .75s step-end infinite;
+    animation-fill-mode: forwards;
+
+  }
+
+  .wrap {
+    display: inline-block;
+
+    h1 {
+      margin: 0;
+      border-right: 2px solid $text-color-main;
+      white-space: nowrap;
+      animation: typeIn 1.5s 2s steps(50), 
+                blinker .75s 2s step-end infinite;
+      animation-fill-mode: forwards;
+      span{
+        color: $text-color-alt;
+      }
+    }
+  }
+
+    
+    a{
+      font-size: 18px;
+      color: $text-color-main;
+      padding: 6px 14px;
+      border: 1.8px solid $text-color-main;
+      text-decoration: none;
+      transition: linear 0.3s;
+      opacity: 0;
+      animation: 1s linear 5s fadeIn;
+      animation-fill-mode: forwards;
+      &:hover {
+        color: $bg-color-main;
+        text-shadow: 0 0 2px;
+        background: $text-color-main;
+        transition: linear 0.3s;
+      }
+    }
+}
+
+//FOOTER
+
+
+.hider2 {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  overflow: auto;
+  bottom: 0;
+  z-index: 97;
+}
+
+.sticky-footer {
+  height: 100%;
+  background-color: rgba(darken($bg-color-main, 6%), 0.8);
+  position: absolute;
+  width: 100%;
+  animation: 2s ease-out 0s 1 slideDown;
+}
+
+.footer {
+  text-align: center;
+  color: $text-color-main;
+  span {
+    color: $text-color-alt;
+  }
+}
+
+.fixer .sticky-menu {
+  position: fixed;
+  background-color: rgba(darken($bg-color-main, 6%), 0.8);
+}
+
+.fader .sticky-footer {
+  animation: 0.5s linear 0s 1 fadeOut;
+  animation-fill-mode: forwards;
+}
+
+//ABOUT
+
+#about {
+  text-align: center;
+  color: darken($text-color-main, 30%);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  h1{
+    font-size: 40px;
+  }
+  p{
+    width: 50%;
+    margin: auto;
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+
+
