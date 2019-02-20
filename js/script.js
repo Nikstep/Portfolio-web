@@ -40,3 +40,18 @@ var head = document.getElementById("hone");
 setTimeout( function() {
     head.style.border = "none";
 }, 3500); //after animation is done with first line, this function will hide typewriter blinking border. 
+
+//Autoexpanding textarea in contact form
+var textarea = document.querySelector('textarea');
+textarea.addEventListener('keydown', autosize);
+             
+function autosize(){
+  var ta = this;
+  setTimeout(function(){
+    ta.style.cssText = 'height:auto; padding:0';
+    ta.style.cssText = 'height:' + ta.scrollHeight + 'px';
+  },0);
+}
+
+//
+
