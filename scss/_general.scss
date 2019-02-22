@@ -1,0 +1,40 @@
+//GENERAL
+
+html {
+	@include box-sizing( border-box );
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after { -webkit-box-sizing: inherit; box-sizing: inherit; }
+
+body {
+  font-family: $font-main;
+  color: $text-color-main;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  @include container(1000px);
+}
+
+section:not(:first-child){
+  padding: 60px 20px 40px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+h3{
+  text-align: center;
+  margin: 0;
+  padding-bottom: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  color: $text-color-alt;
+  font-style: italic;
+}
+
+#home {
+  height: 100vh;
+}

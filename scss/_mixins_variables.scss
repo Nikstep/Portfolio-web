@@ -1,0 +1,39 @@
+//VARIABLES
+
+$font-main: 'Rajdhani';
+
+$text-color-main: #6afde7;
+$text-color-alt: #e31b6d;
+
+$bg-color-main: #2C313D; //v1
+// $bg-color-main: #272625; v2
+// $bg-color-main: #21252E; //v3
+$bg-color-alt: #fbfbfb;
+
+$transition-eio: all 0.3s ease-in-out;
+$transition-lin: all 0.3s linear;
+
+$sz-mini: 540px;
+$sz-small: 660px;
+$sz-medium: 860px;
+$sz-big: 1024px;
+
+//MIXINS
+
+@mixin box-sizing( $value ) {
+	-webkit-box-sizing: $value;
+	        box-sizing: $value;
+}
+
+@mixin container( $width ) {
+	max-width: $width;
+	margin: 0 auto;
+}
+
+@mixin centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%)
+}

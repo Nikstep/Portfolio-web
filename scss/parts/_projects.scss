@@ -1,0 +1,89 @@
+
+
+//PROJECTS
+
+#projects{
+    background: $bg-color-main;
+    img{
+      border-radius: 8px;   
+      border: solid 1px $text-color-main; 
+    }
+  
+    h2{
+      margin: 0;
+    }
+  
+    p{
+      font-size: 14px;
+    }
+  
+    ul{
+      padding-bottom: 50px;
+    }
+  
+    .box{
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+  
+      .column{
+        color: $text-color-main;
+        -webkit-box-flex: 0;
+            -ms-flex-positive: 0;
+                flex-grow: 0;
+        background: $bg-color-main;
+        border-radius: 4px;
+        padding: 50px 20px;
+      }
+    }
+  
+    .demo{
+      padding: 8px 40px;
+      background: $text-color-main;
+      border-radius: 2px;
+      color: $bg-color-main;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 10px;
+      -webkit-transition: $transition-lin;
+      transition: $transition-lin;
+      &:hover{
+        background: $bg-color-main;
+        color: $text-color-main;
+        outline: 1px solid $text-color-main;
+        -webkit-transition: $transition-lin;
+        transition: $transition-lin;
+      }
+    }
+  
+    .source{
+      padding: 8px 20px;
+      background: $text-color-alt;
+      border-radius: 100px;
+      color: $bg-color-main;
+      text-decoration: none;
+      font-weight: 600;
+      -webkit-transition: $transition-lin;
+      transition: $transition-lin;
+      &:hover{
+        background: $bg-color-main;
+        color: $text-color-alt;
+        outline: 2px solid $text-color-alt;
+        -webkit-transition: $transition-lin;
+        transition: $transition-lin;
+      }
+    }
+  }

@@ -1,759 +1,186 @@
-//VARIABLES
+@import "mixins_variables"; //Mixins and variables
+@import "general";          //Regular workflow stuff
+@import "animations";       //Keyframes
 
-$font-main: 'Rajdhani';
+@import "parts/home";         //Menu, background, claim
+@import "parts/about_skills"; //About text and skills
+@import "parts/projects";     //Projects
+@import "parts/contact";      //Contact form and footer
 
-$text-color-main: #6afde7;
-$text-color-alt: #e31b6d;
+//Media queries
 
-// $bg-color-main: #272625; v1
-$bg-color-main: #2C313D; //v2
-// $bg-color-main: #21252E; // v3
-$bg-color-alt: #fbfbfb;
+@media (max-width: $sz-big) {
 
-$transition: all 0.3s ease-in-out;
+  #svg-top-line {
+    width: 100vw;
+  }
 
-
-//MIXINS
-
-@mixin box-sizing( $value ) {
-	-webkit-box-sizing: $value;
-	   -moz-box-sizing: $value;
-	        box-sizing: $value;
-}
-
-@mixin container( $width ) {
-	max-width: $width;
-	margin: 0 auto;
-}
-
-//GENERAL
-
-body {
-  font-family: $font-main;
-  color: $text-color-main;
-}
-
-.container {
-  @include container(1000px);
-}
-
-section:not(:first-child){
-  padding: 40px 20px;
-}
-
-h1 {
-  margin-top: 0;
-}
-
-h3{
-  text-align: center;
-  margin: 0;
-  padding-bottom: 20px;
-  font-weight: 600;
-  font-size: 20px;
-  color: $text-color-alt;
-  font-style: italic;
-}
-
-#home {
-  height: 100vh;
-}
-
-//MENU
-
-.hider {
-  height: 50px;
-  overflow: auto;
-}
-
-.sticky-menu{
-  width: 100%;
-  height: 50px;
-  background-color: rgba(darken($bg-color-main, 6%), 0.8);
-  position: relative;
-  top: 0;
-  z-index: 98;
-  animation: 2s ease-out 0s 1 slideUp;
-}
-
-.menu{
-  font-size: 18px;
-  line-height: 18px;
-  letter-spacing: 2px;
+  #svg-bot-line {
+    width: 100vw;
+  }
   
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-left: 0;
-  position: absolute;
-  z-index: 99;
-  li {
-    list-style: none;
-    display: inline-block;
-    a {
-      text-decoration: none;
-      color: $text-color-main;
-      margin: 10px 16px;
-      padding: 0 2px;
-      transition: linear 0.2s;
-      &:hover {
-        text-shadow: 0px 0px 4px $text-color-main;
-        transition: linear 0.2s;
-    }
-  }
-}
-}
-
-.link {
-  position: relative;
-  &:before {
-    content: "";
-    width: 100%;
-    height: 0.9px;
-    position: absolute;
-    background-color: $text-color-main;
-    bottom: 0;
-    left: 0;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: $transition;
-    transition: $transition;
-    }
-    &:hover:before {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-    }
-}
-
-
-//MENU BACKGROUND
-  
-.space{
-  height: 100%;
-  width: 100%;
-  background: $bg-color-main;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  overflow: hidden;
-}
-
-#lines{
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-}
-
-.drops {
-  opacity: 0.9;
-}
-
-.drop {
-  opacity: 0;
-  animation: 1s linear 2s fadeIn;
-  animation-fill-mode: forwards;
-  fill: $text-color-main; 
-  &:nth-child(odd) {
-    fill: $text-color-alt;
-  }  
-}
-
-//MENU LINES
-
-#svg-top-line {
-  width: 100%;
-  top: 0;
-  position: absolute;
-  z-index: 2;
-}
-
-#top-line {
-  stroke-width: 1.8px;
-  stroke: $text-color-main;
-  animation: 1s linear 0s 1 slideFromLeft, 1s linear 2s 1 slideToRight;
-  animation-fill-mode: forwards;
-}
-
-#svg-bot-line {
-  width: 100%;
-  bottom: 0;
-  position: absolute;
-  z-index: 2;
-}
-
-#bot-line {
-  stroke-width: 5px;
-  stroke: $text-color-alt;
-  animation: 1s linear 0s 1 slideFromRight, 1s linear 2s 1 slideToLeft;
-  animation-fill-mode: forwards;
-}
-
-//CSS ANIMATIONS
-
-
-@keyframes fadeIn {
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  from {
-      opacity:0;
-  }
-  to {
-      opacity:1;
-  }
-}
-
-@keyframes slideUp {
-  0%    { top: 100%} 
-  50%    { top: 100%} 
-  100%  { top: 0};
-}
-
-@-webkit-keyframes slideUp {
-  0%    { top: 100%} 
-  50%    { top: 100%} 
-  100%  { top: 0};
-}
-
-@keyframes slideDown {
-  0%    { bottom: 100%} 
-  50%    { bottom: 100%} 
-  100%  { bottom: 0};
-}
-
-@-webkit-keyframes slideDown {
-  0%    { bottom: 100%} 
-  50%    { bottom: 100%} 
-  100%  { bottom: 0};
-}
-
-@keyframes slideFromLeft {
-  0%    { transform: translateX(-150%)} 
-  100%  { transform: translateX(0) } 
-}
-
-@-webkit-keyframes slideFromLeft {
-  0%    { transform: translateX(-150%)} 
-  100%  { transform: translateX(0) } 
-};
-
-@keyframes slideFromRight {
-  0%    { transform: translateX(150%)} 
-  100%  { transform: translateX(0) } 
-}
-
-@-webkit-keyframes slideFromRight {
-  0%    { transform: translateX(150%)} 
-  100%  { transform: translateX(0) } 
-};
-
-@keyframes slideToLeft {
-  0%    { transform: translateX(0)} 
-  100%  { transform: translateX(-150%) } 
-}
-
-@-webkit-keyframes slideToLeft {
-  0%    { transform: translateX(0)} 
-  100%  { transform: translateX(-150%) } 
-};
-
-@keyframes slideToRight {
-  0%    { transform: translateX(0)} 
-  100%  { transform: translateX(150%) } 
-}
-
-@-webkit-keyframes slideToRight {
-  0%    { transform: translateX(0)} 
-  100%  { transform: translateX(150%) } 
-};
-
-@keyframes typeIn {
-  from { width: 0;
-    visibility: visible;
-  }
-  to { width: 100%;
-    visibility: visible; }
-}
-
-@-webkit-keyframes typeIn {
-  from { width: 0;
-    visibility: visible;
-  }
-  to { width: 100%;
-    visibility: visible; }
-}
-
-@keyframes blinker {
-  from, to { border-color: transparent }
-  50% { border-color: $text-color-main }
-}
-
-@-webkit-keyframes blinker {
-  from, to { border-color: transparent }
-  50% { border-color: $text-color-main }
-}
-
-@keyframes fadeOut {
-  from {
-      opacity:1;
-  }
-  to {
-      opacity:0;
-  }
-}
-@-webkit-keyframes fadeOut {
-  from {
-      opacity:1;
-  }
-  to {
-      opacity:0;
-  }
-}
-
-
-//CLAIM
-
-.claim{
-  position: absolute;
-  text-align: center;
-  z-index: 99;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  padding-bottom: 10px;
-  letter-spacing: 1px;
-  @include box-sizing(border-box);
-  
-  h1 {
-    margin-top: 0;
-    margin-bottom: 30px;
-    color: $text-color-main;
-    font-weight: 400;
-    overflow: hidden;
-    border-right: 2px solid $text-color-main;
-    white-space: nowrap;
-    visibility: hidden;
-    animation: typeIn 1.5s 3.5s steps(50), 
-               blinker .75s step-end infinite;
-    animation-fill-mode: forwards;
-
+  #bot-line {
+    -webkit-animation: 1s linear -0.5s 1 slideFromRight, 1s linear 1.5s 1 slideToLeft;
+            animation: 1s linear -0.5s 1 slideFromRight, 1s linear 1.5s 1 slideToLeft;
+            -webkit-animation-fill-mode: forwards;
+                    animation-fill-mode: forwards;
   }
 
-  .wrap {
-    display: inline-block;
+  #projects{
 
-    h1 {
-      margin: 0;
-      border-right: 2px solid $text-color-main;
-      white-space: nowrap;
-      animation: typeIn 1.5s 2s steps(50), 
-                blinker .75s 2s step-end infinite;
-      animation-fill-mode: forwards;
-      span{
-        color: $text-color-alt;
+    .box{
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 100%;
+      text-align: center;
+      h2{
+        margin-top: -80px;
+      }
+      ul{
+        text-align: left;
       }
     }
   }
+}
 
-    
-    a{
-      font-size: 18px;
-      color: $text-color-main;
-      padding: 6px 14px;
-      border: 1.8px solid $text-color-main;
-      text-decoration: none;
-      transition: linear 0.3s;
-      opacity: 0;
-      animation: 1s linear 5s fadeIn;
-      animation-fill-mode: forwards;
-      &:hover {
+@media(max-width: $sz-medium) {
+
+  #svg-bot-line{
+    display: none;
+  }
+  .sticky-footer{
+    display: none;
+  }
+
+  #contact{
+    .box{
+      display: block;
+      font-weight: 600;
+      .phone,
+      .mail{
+        display: inline-block;
+        border-radius: 12px;
+        margin: 0 20px 50px;
+        -webkit-box-shadow: 3px 3px 8px #333;
+                box-shadow: 3px 3px 8px #333;
+      }
+      .form{
+        background: $bg-color-alt;
+        -webkit-box-shadow: none;
+                box-shadow: none;
         color: $bg-color-main;
-        text-shadow: 0 0 2px;
-        background: $text-color-main;
-        transition: linear 0.3s;
+        i{
+          display: none;
+        }
       }
     }
-}
 
-//FOOTER
-
-
-.hider2 {
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  overflow: auto;
-  bottom: 0;
-  z-index: 97;
-}
-
-.sticky-footer {
-  height: 100%;
-  background-color: rgba(darken($bg-color-main, 6%), 0.8);
-  position: absolute;
-  width: 100%;
-  animation: 2s ease-out 0s 1 slideDown;
-}
-
-.footer {
-  text-align: center;
-  color: $text-color-main;
-  span {
-    color: $text-color-alt;
-  }
-}
-
-.fixer .sticky-menu {
-  position: fixed;
-  background-color: rgba(darken($bg-color-main, 6%), 0.8);
-}
-
-.fader .sticky-footer {
-  animation: 0.5s linear 0s 1 fadeOut;
-  animation-fill-mode: forwards;
-}
-
-//ABOUT
-
-#about {
-  margin-top: -50px;
-
-  background: $bg-color-alt;
-  text-align: center;
-  color: $bg-color-main;
-  h1{
-    font-size: 40px;
-    margin-top: 0;
-  }
-  p{
-    font-size: 20px;
-    line-height: 28px;
-    padding: 20px 40px;
-  }
-}
-
-
-//SKILS
-#skills{
-  background: $bg-color-alt;
-  text-align: center !important;
-  color: $bg-color-main;
-
-  i{
-    font-size: 36px;
-  }
-
-  ul{
-    text-align: left;
-    margin-top: 2px;
-  }
-
-  h4{
-    text-align: left;
-    margin-bottom: 2px;
-
-    i{
-      font-size: 20px;
-      padding-left: 20px;
+    .form-rows{
+      border-radius: 20px;
     }
   }
 
-  .box{
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: flex-start;
-    margin-bottom: 50px;
+}
 
-    .column{
-      color: $text-color-main;
-      flex-grow: 0;
-      flex-basis: 32%;
-      background: $bg-color-main;
-      border-radius: 4px;
-      box-shadow: 3px 3Px 5px #333;
-      padding: 20px 30px;
+@media(max-width: 800px) {
 
+  #skills{
+    .box{
+      display: inline-block;
+      .column{
+        margin: 30px 0;
+        border-radius: 10px;
+        width: 420px;
+        ul{
+          padding-left: 50%;
+          -webkit-transform: translateX(-10%);
+                  transform: translateX(-10%)
+        }
+        h4{
+          padding-left: 30%;
+        }
+      }
     }
-    .column:not(:last-child){
-      margin-right: 2%;
-    }
+  }
+
+  #toTop{
+    right: 10px;
+    bottom: 10px
   }
 }
 
-//PROJECTS
-
-#projects{
-  background: $bg-color-main;
+@media(max-width: $sz-small) {
   img{
-    border-radius: 8px;   
-    border: solid 1px $text-color-main; 
-  }
-
-  h2{
-    margin: 0;
-  }
-
-  p{
-    font-size: 14px;
-  }
-
-  ul{
-    padding-bottom: 50px;
-  }
-
-  .box{
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: flex-start;
-
-    .column{
-      color: $text-color-main;
-      flex-grow: 0;
-      background: $bg-color-main;
-      border-radius: 4px;
-      padding: 50px 20px;
-    }
-  }
-
-  .demo{
-    padding: 8px 40px;
-    background: $text-color-main;
-    border-radius: 2px;
-    color: $bg-color-main;
-    text-decoration: none;
-    font-weight: 600;
-    margin-right: 10px;
-    transition: 0.3s linear;
-    &:hover{
-      background: $bg-color-main;
-      color: $text-color-main;
-      outline: 1px solid $text-color-main;
-      transition: 0.3s linear ;
-    }
-  }
-
-  .source{
-    padding: 8px 20px;
-    background: $text-color-alt;
-    border-radius: 100px;
-    color: $bg-color-main;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s linear;
-    &:hover{
-      background: $bg-color-main;
-      color: $text-color-alt;
-      outline: 2px solid $text-color-alt;
-      transition: 0.3s linear ;
-    }
-  }
-}
-
-//CONTACT
-
-
-#contact .box{
-  padding-top: 50px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  flex: 1;
-  justify-content: center;
-  flex-direction: row;
-  align-items: flex-start;
-  font-size: 24px;
-  text-align: center;
-    text-decoration: none;
-
-  .phone{
-    flex-grow: 0;
-    background: $text-color-main;
-    border-radius: 10px 10px 0 0;
-    padding: 12px 32px;
-    a{
-      text-decoration: none;
-      color: $bg-color-main;
-    }
-  }
-
-  .mail{
-    flex-grow: 0;
-    background: $text-color-alt;
-    border-radius: 10px 10px 0 0;
-    padding: 12px 32px;
-    a{
-      text-decoration: none;
-      color: $bg-color-main;
-
-    }
-  }
-
-  .form{
-    color: $text-color-main;
-    flex-grow: 0;
-    background: $bg-color-main;
-    border-radius: 10px 10px 0 0;
-    padding: 13px 32px;
-    margin-bottom: -2px;
-    box-shadow: 3px 3px 8px #333;
-  }
-
-}
-
-.form-rows {
-  background: $bg-color-main;
-  width: 820.77px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 0 0 10px 10px;
-  box-shadow: 3px 3px 8px #333;
-
-  .box-form{
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    flex-direction: row;
-    align-items: flex-start;
-    box-sizing: border-box;
-
-  }
-
-  #name, 
-  #email,
-  #phone{
-    padding: 0;
-    border: none;
-    background: $bg-color-main;
-    box-sizing: border-box;
-
-    color: $text-color-main;
-    border-bottom: 2px solid $text-color-main;
-    line-height: 20px;
-    &::placeholder{
-      color: darken($text-color-main, 20%);
-      transition: 0.3s linear;
-    }
-  }
-
-  #message{
-    padding: 0;
-    width: calc(100% - 40px);
-    margin: 20px 20px 50px;
-    box-sizing: border-box;
-    border: none;
-    background: $bg-color-main;
-    color: $text-color-main;
-    border-bottom: 2px solid $text-color-main;
-    line-height: 20px;
-    overflow: visible;
-    &::placeholder{
-      color: darken($text-color-main, 20%);
-      transition: 0.3s linear;
-    }
-  }
-
-  .holder{
-    display: flex;
-    flex-flow: column-reverse;
-    margin: 30px 20.13px 20px;
-    padding: 5px 0;
-    flex-grow: 1;
-    border: none;
-  }
-
-  .holder2{
-    display: flex;
-    flex-flow: column-reverse;
-    flex-grow: 1;
-    border: none;
-  }
-
-  label{
-    line-height: 24px;
-    font-size: 24px;
-    transform: translateY(20px);
-    transition: 0.3s linear;
-  }
-
-  textarea + label{
-    line-height: 24px;
-    font-size: 24px;
-    transform: translateX(20px) translateY(40px);
-    transition: 0.3s linear;
-  }
-
-  input:focus + label,
-  input[type=text]:valid + label,
-  textarea:valid + label,
-  input[type=phone]:valid + label {
-    transform: scale(0.6666) translateX(-60px);
-    transition: 0.3s linear;
-  }
-
-  #message:focus + label {
-    transform: scale(0.6666) translateX(-174px) translateY(30px);
-    transition: 0.3s linear;
-  }
-
-  textarea:valid + label{
-    transform: scale(0.6666) translateX(-174px) translateY(30px);
-  }
-
-  .button-holder{
+    max-width: 100%;
     text-align: center;
-    padding-bottom: 40px;
+    margin: 10px;
   }
 
-  .btn {
-    padding: 8px 40px;
-    background: $text-color-main;
-    border-radius: 2px;
-    color: $bg-color-main;
-    text-decoration: none;
-    font-weight: 600;
-    margin-right: 10px;
-    transition: 0.2s linear;
-    font-size: 24px;
-    &:hover{
-      background: $bg-color-main;
-      color: $text-color-main;
-      border: 1px solid $text-color-main;
-      transition: 0.2s linear ;
+  #contact{
+
+    .box-form{
+      display: block;
+      div:first-child{
+        padding-top: 30px;
+      }
+      div{
+        width: 80%;
+        margin: 20px auto;
+      }
     }
-  }
-}
+    
+    label{
+      margin: 5px auto;
+    }
+    
+    
+    .holder2{
+      margin: auto;
+      width: 80%;
+      padding-bottom: 40px;
+        textarea{
+        width: 100%;
+        margin: auto;
+        }
+        textarea + label{
+          -webkit-transform: translateX(0px) translateY(20px);
+                  transform: translateX(0px) translateY(20px);
+        }
+    }
+
+     input:focus + label,
+      input[type=text]:valid + label,
+      input[type=phone]:valid + label {
+      -webkit-transform: scale(0.6666); 
+              transform: scale(0.6666); 
+      -webkit-transition: $transition-lin;
+              transition: $transition-lin;
+    }
+    
+    #message:focus + label {
+      -webkit-transform: scale(0.6666) translateX(0px) translateY(0px);
+              transform: scale(0.6666) translateX(0px) translateY(0px);
+      -webkit-transition: $transition-lin;
+      transition: $transition-lin;
+    }
   
-.effect{
-  height: 20vh;
-  background: linear-gradient($bg-color-alt, $bg-color-main );
+  }
+
 }
 
-.real-footer {
-  margin: 0;
-  display: block;
-  position: relative;
-  height: 50px;
-  line-height: 50px;
-  width: 100%;
-  background-color: $bg-color-main;
-  text-align: center;
-  color: $text-color-main;
-  span {
-    color: $text-color-alt;
+@media(max-width: $sz-mini) {
+  
+  .menu{
+    font-size: 15px;
   }
+
+
 }
