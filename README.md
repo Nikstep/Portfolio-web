@@ -1,3 +1,3 @@
-#Presentation website for aspiring developer
+# Presentation website for aspiring developer
 
 Showcasing few unusual aspects, like SVG paths and animations, typewriter effect and gifs. Completelly responsive.
