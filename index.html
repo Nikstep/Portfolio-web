@@ -415,18 +415,18 @@
                 </div>
             </div>
             <div class="form-rows">
-                <form action="">
+                <form action="contact.php" method="POST">
                     <div class="box-form">
                         <div class="holder">
-                            <input type="text" id="name" required>
+                            <input name="name" type="text" id="name" required>
                             <label for="name">Name</label>
                         </div>
                         <div class="holder">
-                            <input type="text" id="email" required>
+                            <input name="email" type="text" id="email" required>
                             <label for="email">Email</label>
                         </div>
                         <div class="holder">
-                            <input type="phone" id="phone" required>
+                            <input name="phone" type="phone" id="phone" required>
                             <label for="phone">Phone</label>
                         </div>  
                     </div>
@@ -435,7 +435,7 @@
                         <label for="message">Your message</label>
                     </div>
                     <div class="button-holder">
-                        <a href="" class="btn">Send</a>
+                        <a type="submit" name="submit" href="" class="btn">Send</a>
                     </div>
                 </form>
             </div>

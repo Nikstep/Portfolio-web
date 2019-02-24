@@ -1120,5 +1120,48 @@ h3 {
     font-size: 15px;
   }
 }
+@media (max-width: 480px) {
+  .menu {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 19px 0;
+  }
+
+  .claim h1 {
+    font-size: 24px;
+  }
+
+  #skills .box .column {
+    width: 360px;
+  }
+  #skills .box .column h4 {
+    padding-left: 20%;
+  }
+
+  #toTop {
+    bottom: 30px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}
+@media (max-width: 410px) {
+  .menu {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 19px 0;
+  }
+  .menu li a {
+    margin: 10px 10px;
+  }
+
+  #skills .box .column {
+    width: 300px;
+  }
+  #skills .box .column h4 {
+    padding-left: 20%;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
