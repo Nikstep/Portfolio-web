@@ -1,0 +1,20 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "custom portfolio website",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikstep/Portfolio-web.git"
+  },
+  "author": "Nik Stepanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nikstep/Portfolio-web/issues"
+  },
+  "homepage": "https://www.nikstep.cz",
+  "dependencies": {
+    "prettier": "^1.16.4"
+  }
+}

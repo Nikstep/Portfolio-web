@@ -1,16 +1,15 @@
 @import "mixins_variables"; //Mixins and variables
-@import "general";          //Regular workflow stuff
-@import "animations";       //Keyframes
+@import "general"; //Regular workflow stuff
+@import "animations"; //Keyframes
 
-@import "parts/home";         //Menu, background, claim
+@import "parts/home"; //Menu, background, claim
 @import "parts/about_skills"; //About text and skills
-@import "parts/projects";     //Projects
-@import "parts/contact";      //Contact form and footer
+@import "parts/projects"; //Projects
+@import "parts/contact"; //Contact form and footer
 
 //Media queries
 
 @media (max-width: $sz-big) {
-
   #svg-top-line {
     width: 100vw;
   }
@@ -18,169 +17,235 @@
   #svg-bot-line {
     width: 100vw;
   }
-  
+
   #bot-line {
-    -webkit-animation: 1s linear -0.5s 1 slideFromRight, 1s linear 1.5s 1 slideToLeft;
-            animation: 1s linear -0.5s 1 slideFromRight, 1s linear 1.5s 1 slideToLeft;
-            -webkit-animation-fill-mode: forwards;
-                    animation-fill-mode: forwards;
+    -webkit-animation: 1s linear -0.5s 1 slideFromRight,
+      1s linear 1.5s 1 slideToLeft;
+    animation: 1s linear -0.5s 1 slideFromRight, 1s linear 1.5s 1 slideToLeft;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
   }
 
-  #projects{
-
-    .box{
+  #projects {
+    .box {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
       -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
       -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
       width: 100%;
       text-align: center;
-      h2{
+      h2 {
         margin-top: -80px;
       }
-      ul{
+      ul {
         text-align: left;
       }
     }
   }
 }
 
-@media(max-width: $sz-medium) {
-
-  #svg-bot-line{
+@media (max-width: $sz-medium) {
+  #svg-bot-line {
     display: none;
   }
-  .sticky-footer{
+  .sticky-footer {
     display: none;
   }
 
-  #contact{
-    .box{
+  #contact {
+    .box {
       display: block;
       font-weight: 600;
       .phone,
-      .mail{
+      .mail {
         display: inline-block;
         border-radius: 12px;
         margin: 0 20px 50px;
         -webkit-box-shadow: 3px 3px 8px #333;
-                box-shadow: 3px 3px 8px #333;
+        box-shadow: 3px 3px 8px #333;
       }
-      .form{
+      .form {
         background: $bg-color-alt;
         -webkit-box-shadow: none;
-                box-shadow: none;
+        box-shadow: none;
         color: $bg-color-main;
-        i{
+        i {
           display: none;
         }
       }
     }
 
-    .form-rows{
+    .form-rows {
       border-radius: 20px;
     }
   }
-
 }
 
-@media(max-width: 800px) {
-
-  #skills{
-    .box{
+@media (max-width: 800px) {
+  #skills {
+    .box {
       display: inline-block;
-      .column{
+      .column {
         margin: 30px 0;
         border-radius: 10px;
         width: 420px;
-        ul{
+        ul {
           padding-left: 50%;
           -webkit-transform: translateX(-10%);
-                  transform: translateX(-10%)
+          transform: translateX(-10%);
         }
-        h4{
+        h4 {
           padding-left: 30%;
         }
       }
     }
   }
 
-  #toTop{
+  #toTop {
     right: 10px;
-    bottom: 10px
+    bottom: 10px;
   }
 }
 
-@media(max-width: $sz-small) {
-  img{
+@media (max-width: $sz-small) {
+  img {
     max-width: 100%;
     text-align: center;
     margin: 10px;
   }
 
-  #contact{
+  #toTop {
+    width: 50px;
+    height: 50px;
+    a {
+      font-size: 22px;
+    }
+    i {
+      font-size: 14px;
+    }
+  }
 
-    .box-form{
+  #contact {
+    .box-form {
       display: block;
-      div:first-child{
+      div:first-child {
         padding-top: 30px;
       }
-      div{
+      div {
         width: 80%;
         margin: 20px auto;
       }
     }
-    
-    label{
+
+    label {
       margin: 5px auto;
     }
-    
-    
-    .holder2{
+
+    .holder2 {
       margin: auto;
       width: 80%;
       padding-bottom: 40px;
-        textarea{
+      textarea {
         width: 100%;
         margin: auto;
-        }
-        textarea + label{
-          -webkit-transform: translateX(0px) translateY(20px);
-                  transform: translateX(0px) translateY(20px);
-        }
+      }
+      textarea + label {
+        -webkit-transform: translateX(0px) translateY(20px);
+        transform: translateX(0px) translateY(20px);
+      }
     }
 
-     input:focus + label,
-      input[type=text]:valid + label,
-      input[type=phone]:valid + label {
-      -webkit-transform: scale(0.6666); 
-              transform: scale(0.6666); 
-      -webkit-transition: $transition-lin;
-              transition: $transition-lin;
-    }
-    
-    #message:focus + label {
-      -webkit-transform: scale(0.6666) translateX(0px) translateY(0px);
-              transform: scale(0.6666) translateX(0px) translateY(0px);
+    input:focus + label,
+    input[type="text"]:valid + label,
+    input[type="phone"]:valid + label {
+      -webkit-transform: scale(0.6666);
+      transform: scale(0.6666);
       -webkit-transition: $transition-lin;
       transition: $transition-lin;
     }
-  
+
+    #message:focus + label {
+      -webkit-transform: scale(0.6666) translateX(0px) translateY(0px);
+      transform: scale(0.6666) translateX(0px) translateY(0px);
+      -webkit-transition: $transition-lin;
+      transition: $transition-lin;
+    }
   }
 
+  .real-footer{
+    font-size: 14px;
+  }
 }
 
-@media(max-width: $sz-mini) {
-  
-  .menu{
+@media (max-width: $sz-mini) {
+  .menu {
     font-size: 15px;
   }
 
+  .real-footer{
+    font-size: 12px;
+  }
+}
 
+@media (max-width: 480px) {
+  .menu {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 19px 0;
+  }
+
+  .claim {
+    h1 {
+      font-size: 24px;
+    }
+  }
+
+  #skills {
+    .box {
+      .column {
+        width: 360px;
+        h4 {
+          padding-left: 20%;
+        }
+      }
+    }
+  }
+
+  #toTop {
+    bottom: 55px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 410px) {
+  .menu {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 19px 0;
+    li {
+      a {
+        margin: 10px 10px;
+      }
+    }
+  }
+
+  #skills {
+    .box {
+      .column {
+        width: 300px;
+        h4 {
+          padding-left: 20%;
+        }
+      }
+    }
+  }
 }
