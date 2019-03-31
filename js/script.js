@@ -10,7 +10,7 @@
 //Preset visibility to hidden to avoid initial flash(Currently disabled because of animation)
 // TweenLite.set(".drop", {visibility: visible"});
 
-//Block scroll for 3 seconds after load for smooth animation
+//Blocks scroll for 3 seconds after load for smooth animation
 setTimeout(function() {
   document.getElementById("body").style.overflow = "auto";
 }, 3000);
@@ -167,3 +167,137 @@ start.addEventListener("click", function(e) {
 
 const observer = lozad();
 observer.observe();
+
+//Form
+const contactForm = document.getElementById("contactForm");
+contactForm.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const serialize = form => {
+    let field,
+      l,
+      s = [];
+
+    if (typeof form == "object" && form.nodeName == "FORM") {
+      const len = form.elements.length;
+
+      for (let i = 0; i < len; i++) {
+        field = form.elements[i];
+        if (
+          field.name &&
+          !field.disabled &&
+          field.type != "button" &&
+          field.type != "file" &&
+          field.type != "hidden" &&
+          field.type != "reset" &&
+          field.type != "submit"
+        ) {
+          if (field.type == "select-multiple") {
+            l = form.elements[i].options.length;
+
+            for (var j = 0; j < l; j++) {
+              if (field.options[j].selected) {
+                s[s.length] =
+                  encodeURIComponent(field.name) +
+                  "=" +
+                  encodeURIComponent(field.options[j].value);
+              }
+            }
+          } else if (
+            (field.type != "checkbox" && field.type != "radio") ||
+            field.checked
+          ) {
+            s[s.length] =
+              encodeURIComponent(field.name) +
+              "=" +
+              encodeURIComponent(field.value);
+          }
+        }
+      }
+    }
+    return s.join("&").replace(/%20/g, "+");
+  };
+
+  const formData = serialize(contactForm);
+
+  function loadXMLDoc() {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+        if (xmlhttp.status == 200) {
+          alert(xmlhttp.responseText);
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("phone").value = "";
+          document.getElementById("message").value = "";
+        } else if (xmlhttp.status == 400) {
+          alert(xmlhttp.responseText);
+        } else {
+          alert(xmlhttp.responseText);
+        }
+      }
+    };
+
+    xmlhttp.open("POST", contactForm.getAttribute("action"), true);
+    xmlhttp.setRequestHeader(
+      "Content-type",
+      "application/x-www-form-urlencoded"
+    );
+    xmlhttp.send(formData);
+  }
+  loadXMLDoc();
+});
+
+//     .done(function(response) {
+//       //Alert of message returned by server
+//       alert(response);
+//       //Reset of fields
+//       $("#name").val("");
+//       $("#email").val("");
+//       $("#phone").val("");
+//       $("#message").val("");
+//     })
+//     .fail(function(data) {
+//       if (data.responseText !== "") {
+//         alert(data.responseText);
+//       } else {
+//         alert("Oops! Někde se stala chyba a váše zpráva nemohla být odeslaná.");
+//       }
+//     });
+// });
+
+/**********************************************************/
+// $(function() {
+//   var contactForm = $("#contactForm");
+//   $(contactForm).submit(function(event) {
+//     event.preventDefault();
+
+//     var formData = $(contactForm).serialize();
+//     console.log(formData);
+//     $.ajax({
+//       type: "POST",
+//       url: $(contactForm).attr("action"),
+//       data: formData
+//     })
+//       .done(function(response) {
+//         //Alert of message returned by server
+//         alert(response);
+//         //Reset of fields
+//         $("#name").val("");
+//         $("#email").val("");
+//         $("#phone").val("");
+//         $("#textarea").val("");
+//         console.log(done());
+//       })
+//       .fail(function(data) {
+//         if (data.responseText !== "") {
+//           alert(data.responseText);
+//         } else {
+//           alert(
+//             "Oops! Někde se stala chyba a váše zpráva nemohla být odeslaná."
+//           );
+//         }
+//       });
+//   });
+// });

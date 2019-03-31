@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="css/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=7">
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+    </script>
 </head>
 
 <body id="body">
@@ -229,8 +234,10 @@
                         <ul>
                             <li>VACode</li>
                             <li>Sublime</li>
-                            <li>Git (Gitflow Workflow</li>
+                            <li>Git (Gitflow Workflow)</li>
                             <li>Github</li>
+                            <li>NPM</li>
+                            <li>Parcel</li>
                             <li>Scrum/Kanban</li>
                             <li>Chrome dev tools</li>
                         </ul>
@@ -473,11 +480,12 @@
                     </div>
                 </div>
                 <div class="form-rows">
-                    <form action="contact.php" method="POST">
+                    <form id="contactForm" action="contact.php" role="form" method="POST">
                         <div class="box-form">
                             <div class="holder">
                                 <input name="name" type="text" id="name" required>
                                 <label for="name">Name</label>
+                                <input name="website" id="website" type="text" style="display: none;" />
                             </div>
                             <div class="holder">
                                 <input name="email" type="text" id="email" required>
@@ -493,8 +501,9 @@
                             <label for="message">Your message</label>
                         </div>
                         <div class="button-holder">
-                            <a type="submit" name="submit" href="" class="btn">Send</a>
+                            <input type="submit" name="submit" value="Submit" class="btn">
                         </div>
+                        <p id="successMessage" style="display: none;">Thank You!</p>
                     </form>
                 </div>
             </div>
