@@ -5,9 +5,9 @@ Using "Vanilla" Javascript, PHP and SVG to create an enhanced user experience.
 
 ## About The Project
 
-|                     Desktop                      |                     Mobile                     |
-| :----------------------------------------------: | :--------------------------------------------: |
-| ![](https://www.nikstep.cz/Apps/Desktop/Nik.jpg) | ![](https://www.nikstep.cz/Apps/Mobile/NS.jpg) |
+|                        Desktop                        |                       Mobile                        |
+| :---------------------------------------------------: | :-------------------------------------------------: |
+| ![](https://www.nikstep.cz/Apps/Pics/Desktop/Nik.jpg) | ![](https://www.nikstep.cz/Apps/Pics/Mobile/NS.jpg) |
 
 Fully responsive and optimized personal portfolio web. Features: SVG with animation, smooth scrolling, form validation(PHP), Lazyload.
 
