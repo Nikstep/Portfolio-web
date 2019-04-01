@@ -1,6 +1,6 @@
 # Personal Portfolio Web
 
-Using "Vanilla" Javascript, PHP and SVG to create an enhanced user experience.
+Using "Vanilla" Javascript, AJAX, PHP and SVG to create an enhanced user experience.
 [Demo](https://www.nikstep.cz/)
 
 ## About The Project
@@ -25,7 +25,7 @@ Distributed under the MIT License.
 
 ## Built With
 
-- Vanilla JS, SASS, PHP, FontAwesome, Animate.css
+- Vanilla JS, SASS, AJAX, PHP, FontAwesome, Animate.css
 - [WOWJS](https://wowjs.uk/) - Initial animation
 - [GSAP](https://greensock.com/) - Used to animate SVG
 
