@@ -1170,6 +1170,11 @@ h3 {
   #skills .box .column {
     width: 360px;
   }
+  #skills .box .column ul {
+    padding-left: 50%;
+    -webkit-transform: translateX(-25%);
+    transform: translateX(-25%);
+  }
   #skills .box .column h4 {
     padding-left: 20%;
   }

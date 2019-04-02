@@ -26,7 +26,7 @@ Distributed under the MIT License.
 ## Built With
 
 - Vanilla JS, SASS, AJAX, PHP, FontAwesome, Animate.css
-- [WOWJS](https://wowjs.uk/) - Initial animation
+- [WOWJS](https://wowjs.uk/) - Content load animation
 - [GSAP](https://greensock.com/) - Used to animate SVG
 
 ## Author

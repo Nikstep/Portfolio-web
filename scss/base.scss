@@ -178,7 +178,7 @@
     }
   }
 
-  .real-footer{
+  .real-footer {
     font-size: 14px;
   }
 }
@@ -188,7 +188,7 @@
     font-size: 15px;
   }
 
-  .real-footer{
+  .real-footer {
     font-size: 12px;
   }
 }
@@ -210,6 +210,11 @@
     .box {
       .column {
         width: 360px;
+        ul {
+          padding-left: 50%;
+          -webkit-transform: translateX(-25%);
+          transform: translateX(-25%);
+        }
         h4 {
           padding-left: 20%;
         }
