@@ -213,6 +213,13 @@
       -webkit-transition: $transition-lin;
       transition: $transition-lin;
     }
+    .inScroll {
+      color: $bg-color-main;
+      text-shadow: 0 0 2px;
+      background: $text-color-main;
+      -webkit-transition: $transition-lin;
+      transition: $transition-lin;
+    }
   }
 }
 
